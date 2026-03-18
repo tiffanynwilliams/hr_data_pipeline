@@ -44,6 +44,8 @@ def run(file: str):
     """
     data = []
 
+    # testing! 
+
     # open file using file I/O and read it into the `data` list
     
     file_object = open(file)
