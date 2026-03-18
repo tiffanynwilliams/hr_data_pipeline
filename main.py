@@ -2,6 +2,31 @@ def clean_heartrate_data(data: list) -> tuple:
     """
     Clean raw heart-rate data by removing malformed or impossible values.
     """
+    
+    # remove the instances of ' ' and 'NO DATA' first and in this f(x)
+    # return cleaned_list, removed_values = clean_heartrate_data(data) 
+
+    # for removed_values in cleaned_list:
+    #     print(float(cleaned_list.strip()))
+
+    # CREATE EMPTY LIST, WE'LL APPEND CLEANED HEARTRATE VALUES IN L8R
+    cleaned_list = []
+    removed_values = 0
+    
+    for heartrate in data:
+            stripped_heartrate = heartrate.strip()
+    if stripped_heartrate.isdigit() is True:
+            stripped_heartrate =(int(stripped_heartrate))
+            cleaned_list.append(stripped_heartrate)
+    else: # if the value fails a digit check add 1 to removed_values
+            removed_values = removed_values + 1
+           
+            # print(cleaned_list, removed_values = clean_heartrate_data(data))
+
+    return  cleaned_list, removed_values
+   
+        # print(heartrate.append(float(heartrate.strip)))
+
     pass
 
 
@@ -52,7 +77,7 @@ def run(file: str):
     data = file_object.readlines()
 
     # Use `clean_heartrate_data` to clean the data and remove invalid entries
-    cleaned_list, removed_values = clean_heartrate_data(data)
+    # cleaned_list, removed_values = clean_heartrate_data(data) 
 
     # calculate the average, median, and range of this file using the functions you've wrote
     average_heart_rate_data = average(data)
@@ -67,6 +92,5 @@ if __name__ == "__main__":
     run("data/phase1.txt")
     run("data/phase2.txt")
     run("data/phase3.txt")
-
 
 print("Is this thing even working LOL!")
