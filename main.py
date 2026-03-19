@@ -2,13 +2,8 @@ def clean_heartrate_data(data: list) -> tuple:
     """
     Clean raw heart-rate data by removing malformed or impossible values.
     """
-    
-    # remove the instances of ' ' and 'NO DATA' first and in this f(x)
-    # return cleaned_list, removed_values = clean_heartrate_data(data) 
 
     # for removed_values in cleaned_list:
-    #     print(float(cleaned_list.strip()))
-
     # CREATE EMPTY LIST, WE'LL APPEND CLEANED HEARTRATE VALUES IN L8R
     cleaned_list = []
     removed_values = 0
@@ -20,16 +15,10 @@ def clean_heartrate_data(data: list) -> tuple:
             cleaned_list.append(stripped_heartrate)
         else: # if the value fails a digit check add 1 to removed_values
             removed_values = removed_values + 1
-            print(removed_values)
-
-    print(cleaned_list, removed_values)
+            
                            
     return (cleaned_list, removed_values)
     print(cleaned_list, removed_values = clean_heartrate_data(data))
-
-    
-    
-        # print(heartrate.append(float(heartrate.strip)))
 
     pass
 
@@ -73,28 +62,29 @@ def run(file: str):
     """
     data = []
 
-    # testing! 
-
     # open file using file I/O and read it into the `data` list
     
     file_object = open(file)
     data = file_object.readlines()
-
+    
     # Use `clean_heartrate_data` to clean the data and remove invalid entries
-    # cleaned_list, removed_values = clean_heartrate_data(data) 
+    cleaned_list, removed_values = clean_heartrate_data(data)  
+    
     # calculate the average, median, and range of this file using the functions you've wrote
+    
     # average_heart_rate_data = average(data)
 
     # print out your data quality measure to the console
-    # ...
-    # print(cleaned_list, removed_values)
+    print(cleaned_list, removed_values)
+
     # print out your descriptive statistics to the console
     # ...we are passing in the strings that are in the path of the text filesif __name__ == "__main__":
 if __name__ == "__main__":
-     run("data/phase0.txt")
-     run("data/phase1.txt")
-     run("data/phase2.txt")
-     run("data/phase3.txt")
-
-print("Is this thing even working LOL!")
+    run("data/phase0.txt")
+    run("data/phase1.txt")
+    run("data/phase2.txt")
+    run("data/phase3.txt")
+    
+    # data(close) ??
+# print("Is this thing even working LOL!")
 
