@@ -14,17 +14,17 @@ def clean_heartrate_data(data: list) -> tuple:
     removed_values = 0
     
     for heartrate in data:
-            print(stripped_heartrate = heartrate.strip())
+            stripped_heartrate = heartrate.strip()
     if stripped_heartrate.isdigit() is True:
-            print(stripped_heartrate =(int(stripped_heartrate)))
-            print(cleaned_list.append(stripped_heartrate))
+            stripped_heartrate = (int(stripped_heartrate))
+            cleaned_list.append(stripped_heartrate)
     else: # if the value fails a digit check add 1 to removed_values
-            print(removed_values = removed_values + 1)
+            removed_values = removed_values + 1
            
             # print(cleaned_list, removed_values = clean_heartrate_data(data))
 
-    return  cleaned_list, removed_values
-   
+    # return  cleaned_list, removed_values
+            return removed_values
         # print(heartrate.append(float(heartrate.strip)))
 
     pass
@@ -84,7 +84,7 @@ def run(file: str):
 
     # print out your data quality measure to the console
     # ...
-
+    
     # print out your descriptive statistics to the console
     # ...we are passing in the strings that are in the path of the text filesif __name__ == "__main__":
 if __name__ == "__main__":
