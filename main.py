@@ -18,7 +18,6 @@ def clean_heartrate_data(data: list) -> tuple:
             
                            
     return (cleaned_list, removed_values)
-    # print(cleaned_list, removed_values = clean_heartrate_data(data))
 
     pass
 
@@ -44,7 +43,26 @@ def median(data: list) -> float:
     """
 
     ordered_data = sorted(data)
-    print(ordered_data)
+    # print(ordered_data)
+    length = len(ordered_data)
+    middle_index = length // 2
+    
+    # mid1, mid2 are the two mddle numbers when a list is sorted... we take the average of them to get median when the list' length is even
+    # else, 
+    if length % 2 == 0:
+        mid1 = ordered_data[middle_index]
+        mid2 = ordered_data[middle_index - 1]
+        middle_num = mid1 + mid2 
+        even_median = round(middle_num / 2, 2)
+
+        return even_median
+    else:
+        odd_median = ordered_data[middle_index]
+
+        return odd_median
+        
+    
+    return ordered_data[middle_index] 
     
     pass
 
@@ -91,6 +109,7 @@ def run(file: str):
     print(cleaned_list, removed_values)
 
     median_heart_rate_data = median(cleaned_list)
+    print("Median", median_heart_rate_data)
 
 
     # print out your descriptive statistics to the console
