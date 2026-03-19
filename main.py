@@ -18,7 +18,7 @@ def clean_heartrate_data(data: list) -> tuple:
             
                            
     return (cleaned_list, removed_values)
-    print(cleaned_list, removed_values = clean_heartrate_data(data))
+    # print(cleaned_list, removed_values = clean_heartrate_data(data))
 
     pass
 
@@ -27,7 +27,14 @@ def average(data: list) -> float:
     """
     Calculate average of a list of integers using a for-loop. Assumes data is clean.
     """
+    total = 0
+    for heartrate in data:
+        total = total + heartrate
+        avg_heart_rate = round(total / len(data), 2)
+
     pass
+
+    return avg_heart_rate
 
 
 def median(data: list) -> float:
@@ -72,8 +79,8 @@ def run(file: str):
     
     # calculate the average, median, and range of this file using the functions you've wrote
     
-    # average_heart_rate_data = average(data)
-
+    average_heart_rate_data = average(cleaned_list)
+    print("Average:", average_heart_rate_data)
     # print out your data quality measure to the console
     print(cleaned_list, removed_values)
 
