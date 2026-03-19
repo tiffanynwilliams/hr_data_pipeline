@@ -14,12 +14,12 @@ def clean_heartrate_data(data: list) -> tuple:
     removed_values = 0
     
     for heartrate in data:
-            stripped_heartrate = heartrate.strip()
+            print(stripped_heartrate = heartrate.strip())
     if stripped_heartrate.isdigit() is True:
-            stripped_heartrate =(int(stripped_heartrate))
-            cleaned_list.append(stripped_heartrate)
+            print(stripped_heartrate =(int(stripped_heartrate)))
+            print(cleaned_list.append(stripped_heartrate))
     else: # if the value fails a digit check add 1 to removed_values
-            removed_values = removed_values + 1
+            print(removed_values = removed_values + 1)
            
             # print(cleaned_list, removed_values = clean_heartrate_data(data))
 
