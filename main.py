@@ -39,7 +39,13 @@ def average(data: list) -> float:
 
 def median(data: list) -> float:
     """
+    To find the median, follow these steps: 
+    Sort the list with sorted() to save the ordered list to a new variable, find the middle using len(), and handle odd and even cases with if/else
     """
+
+    ordered_data = sorted(data)
+    print(ordered_data)
+    
     pass
 
 
@@ -83,6 +89,9 @@ def run(file: str):
     print("Average:", average_heart_rate_data)
     # print out your data quality measure to the console
     print(cleaned_list, removed_values)
+
+    median_heart_rate_data = median(cleaned_list)
+
 
     # print out your descriptive statistics to the console
     # ...we are passing in the strings that are in the path of the text filesif __name__ == "__main__":
