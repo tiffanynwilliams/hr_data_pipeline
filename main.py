@@ -14,17 +14,21 @@ def clean_heartrate_data(data: list) -> tuple:
     removed_values = 0
     
     for heartrate in data:
-            stripped_heartrate = heartrate.strip()
-    if stripped_heartrate.isdigit() is True:
+        stripped_heartrate = heartrate.strip()
+        if stripped_heartrate.isdigit() is True:
             stripped_heartrate = (int(stripped_heartrate))
             cleaned_list.append(stripped_heartrate)
-    else: # if the value fails a digit check add 1 to removed_values
+        else: # if the value fails a digit check add 1 to removed_values
             removed_values = removed_values + 1
-           
-            # print(cleaned_list, removed_values = clean_heartrate_data(data))
+            print(removed_values)
 
-    # return  cleaned_list, removed_values
-            return removed_values
+    print(cleaned_list, removed_values)
+                           
+    return (cleaned_list, removed_values)
+    print(cleaned_list, removed_values = clean_heartrate_data(data))
+
+    
+    
         # print(heartrate.append(float(heartrate.strip)))
 
     pass
@@ -78,19 +82,19 @@ def run(file: str):
 
     # Use `clean_heartrate_data` to clean the data and remove invalid entries
     # cleaned_list, removed_values = clean_heartrate_data(data) 
-
     # calculate the average, median, and range of this file using the functions you've wrote
-    average_heart_rate_data = average(data)
+    # average_heart_rate_data = average(data)
 
     # print out your data quality measure to the console
     # ...
-    
+    # print(cleaned_list, removed_values)
     # print out your descriptive statistics to the console
     # ...we are passing in the strings that are in the path of the text filesif __name__ == "__main__":
 if __name__ == "__main__":
-    run("data/phase0.txt")
-    run("data/phase1.txt")
-    run("data/phase2.txt")
-    run("data/phase3.txt")
+     run("data/phase0.txt")
+     run("data/phase1.txt")
+     run("data/phase2.txt")
+     run("data/phase3.txt")
 
 print("Is this thing even working LOL!")
+
