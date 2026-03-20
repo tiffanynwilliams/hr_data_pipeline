@@ -6,7 +6,7 @@ def clean_heartrate_data(data: list) -> tuple:
     # removed_values is a counter for how many non-digit characters in the data
 
     cleaned_list = []
-    removed_values = 0
+    removed_val = 0
     
     # stripped_heartrate will have its integer-type heart rate values placed inside the cleaned_list
     # return cleaned_list and removed_values back to run()
@@ -16,9 +16,10 @@ def clean_heartrate_data(data: list) -> tuple:
             stripped_heartrate = (int(stripped_heartrate))
             cleaned_list.append(stripped_heartrate)
         else: 
-            removed_values = removed_values + 1     
+            # 
+            removed_val = removed_val + 1     
                            
-    return (cleaned_list, removed_values)
+    return (cleaned_list, removed_val)
 
     pass
 
@@ -122,23 +123,22 @@ def run(file: str):
     data = file_object.readlines()
     
     # Use `clean_heartrate_data` to clean the data and remove invalid entries
-    cleaned_list, removed_values = clean_heartrate_data(data)  
+    cleaned_list, removed_val = clean_heartrate_data(data)  
     
     # calculate the average, median, and range of this file using the functions you've wrote
     average_heart_rate_data = average(cleaned_list)
-    print("Average:", average_heart_rate_data)   
+    print("Average:", average_heart_rate_data, "bpm")   
     
     median_heart_rate_data = median(cleaned_list)
-    print("Median:", median_heart_rate_data)
+    print("Median:", median_heart_rate_data, "bpm")
 
     range_heart_rate_data = range(cleaned_list)
-    print("Range:", range_heart_rate_data)
-    
+    print("Range:", range_heart_rate_data, "bpm")
 
+    print("Removed Values:", removed_val, "heartrate(s)")
 
     # print out your data quality measure to the console
-    print(cleaned_list)
-
+    print("Cleaned Heartrate Values:", cleaned_list, "\n")
     
     #close() to stop reading the files
     file_object.close()
@@ -150,6 +150,3 @@ if __name__ == "__main__":
     run("data/phase1.txt")
     run("data/phase2.txt")
     run("data/phase3.txt")
-    
-    
-
