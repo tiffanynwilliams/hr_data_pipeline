@@ -2,20 +2,21 @@ def clean_heartrate_data(data: list) -> tuple:
     """
     Clean raw heart-rate data by removing malformed or impossible values.
     """
+    # cleaned_list will contain the stripped_heartrate values
+    # removed_values is a counter for how many non-digit characters in the data
 
-    # for removed_values in cleaned_list:
-    # CREATE EMPTY LIST, WE'LL APPEND CLEANED HEARTRATE VALUES IN L8R
     cleaned_list = []
     removed_values = 0
     
+    # stripped_heartrate will have its integer-type heart rate values placed inside the cleaned_list
+    # return cleaned_list and removed_values back to run()
     for heartrate in data:
         stripped_heartrate = heartrate.strip()
         if stripped_heartrate.isdigit() is True:
             stripped_heartrate = (int(stripped_heartrate))
             cleaned_list.append(stripped_heartrate)
-        else: # if the value fails a digit check add 1 to removed_values
-            removed_values = removed_values + 1
-            
+        else: 
+            removed_values = removed_values + 1     
                            
     return (cleaned_list, removed_values)
 
@@ -26,6 +27,8 @@ def average(data: list) -> float:
     """
     Calculate average of a list of integers using a for-loop. Assumes data is clean.
     """
+    # avg_heart_rate is the two decimal-place rounded total / length of data list
+    # return the avg_heart_rate back to run()
     total = 0
     for heartrate in data:
         total = total + heartrate
@@ -48,20 +51,20 @@ def median(data: list) -> float:
     middle_index = length // 2
     
     # mid1, mid2 are the two mddle numbers when a list is sorted... we take the average of them to get median when the list' length is even
-    # else, 
+    # else let's return the middle number when the list is sorted... there is only one number when a length of a list is odd
     if length % 2 == 0:
         mid1 = ordered_data[middle_index]
         mid2 = ordered_data[middle_index - 1]
-        middle_num = mid1 + mid2 
-        even_median = round(middle_num / 2, 2)
+        mid_num = mid1 + mid2 
+        even_median = round(mid_num / 2, 2)
 
         return even_median
+        
     else:
-        odd_median = ordered_data[middle_index]
 
+        odd_median = ordered_data[middle_index]
         return odd_median
         
-    
     return ordered_data[middle_index] 
     
     pass
@@ -69,13 +72,34 @@ def median(data: list) -> float:
 
 def range(data: list) -> float:
     """
+    range is the cleaned_list's maximum - minimum...   
     """
+    # make an initial max_value to first heartrate value in data list
+    max_val = data[0]
+    # find the maximum value
+    for heartrate in data:
+        if heartrate >= max_val:
+            max_val = heartrate
+    
+    
+    min_val = data[0]
+    # find the minimum value (similar opposite but similar to finding maximum)
+    for heartrate in data:
+        if heartrate <= min_val:
+            min_val = heartrate
+        
+    # range = maximum - minimum 
+    heartrate_range = max_val - min_val
+      
+    return heartrate_range
+
+
     pass
 
 
 def rolling_avg(data: list, k: int) -> float:
     """
-    CHALLENGE FUNCTION (Optional)
+    CHALLENGE FUNCTION (Optional) i have no idea yet, maybe revist this after submitting this TLAB
     """
     pass
 
@@ -109,17 +133,21 @@ def run(file: str):
     print(cleaned_list, removed_values)
 
     median_heart_rate_data = median(cleaned_list)
-    print("Median", median_heart_rate_data)
+    print("Median:", median_heart_rate_data)
 
+    range_heart_rate_data = range(cleaned_list)
+    print("Range:", range_heart_rate_data)
+    
+    #close() to stop reading the files
+    file_object.close()
 
     # print out your descriptive statistics to the console
-    # ...we are passing in the strings that are in the path of the text filesif __name__ == "__main__":
+    # .we are passing in the strings that are in the path of the text files
 if __name__ == "__main__":
     run("data/phase0.txt")
     run("data/phase1.txt")
     run("data/phase2.txt")
     run("data/phase3.txt")
     
-    # data(close) ??
-# print("Is this thing even working LOL!")
+    
 
