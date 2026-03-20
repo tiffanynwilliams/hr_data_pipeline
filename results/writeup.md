@@ -1,4 +1,4 @@
-1) Which file appears to represent the most active period? Explain using at least two metrics. Consider that this is a 30 year old participant and compare your output to the column titled "Target HR Zone 50-85%" within this link: https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates
+1) Which file appears to represent the most active period? Explain using at least two metrics. Consider that this is a 30 year old participant and compare your output to the column titled "Target HR Zone 50-85%" within this link: https://www.heart.org/en/healthy-living/fitness/fitness-basics/target-heart-rates 
 
 According to the "Target HR Zone 50-85%", the phase1.txt file shown the most active period. I say so, because the average of all the heartrates was the highest at 87.3 bpm. The data can support two hypotheses: the participant is healthier than the average or purposefully not exerting as much energy. Their heartrates are slightly lower than the range expected of those in their 30s.
 
