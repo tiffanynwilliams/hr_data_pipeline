@@ -6,7 +6,7 @@ def clean_heartrate_data(data: list) -> tuple:
     # removed_values is a counter for how many non-digit characters in the data
 
     cleaned_list = []
-    removed_val = 0
+    removed_val = 0 
     
     # stripped_heartrate will have its integer-type heart rate values placed inside the cleaned_list
     # return cleaned_list and removed_values back to run()
