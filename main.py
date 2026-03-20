@@ -44,14 +44,15 @@ def median(data: list) -> float:
     To find the median, follow these steps: 
     Sort the list with sorted() to save the ordered list to a new variable, find the middle using len(), and handle odd and even cases with if/else
     """
-
+    # ordered_data is the data list with its heart rate values in ascending order
+    # middle_index uses the length of ordered_data list and floor division to get an integer index
     ordered_data = sorted(data)
-    # print(ordered_data)
     length = len(ordered_data)
     middle_index = length // 2
     
     # mid1, mid2 are the two mddle numbers when a list is sorted... we take the average of them to get median when the list' length is even
-    # else let's return the middle number when the list is sorted... there is only one number when a length of a list is odd
+    # return the middle number when the list is sorted... there is only one number when a length of a list is odd
+    # return 2 decimal rounded ordered_even_median and odd_median back to run()
     if length % 2 == 0:
         mid1 = ordered_data[middle_index]
         mid2 = ordered_data[middle_index - 1]
@@ -62,10 +63,8 @@ def median(data: list) -> float:
         
     else:
 
-        odd_median = ordered_data[middle_index]
+        odd_median = round(ordered_data[middle_index], 2)
         return odd_median
-        
-    return ordered_data[middle_index] 
     
     pass
 
@@ -76,19 +75,19 @@ def range(data: list) -> float:
     """
     # make an initial max_value to first heartrate value in data list
     max_val = data[0]
-    # find the maximum value
+
+    # max_val is updated to heartrate if heartrate is larger than max_val
     for heartrate in data:
-        if heartrate >= max_val:
+        if heartrate > max_val:
             max_val = heartrate
     
-    
+    # make an initial min_value to first heartrate value in data list
     min_val = data[0]
-    # find the minimum value (similar opposite but similar to finding maximum)
+    # min_val is updated to heartrate if heartrate is smaller than min_val
     for heartrate in data:
-        if heartrate <= min_val:
+        if heartrate < min_val:
             min_val = heartrate
         
-    # range = maximum - minimum 
     heartrate_range = max_val - min_val
       
     return heartrate_range
@@ -99,7 +98,7 @@ def range(data: list) -> float:
 
 def rolling_avg(data: list, k: int) -> float:
     """
-    CHALLENGE FUNCTION (Optional) i have no idea yet, maybe revist this after submitting this TLAB
+    CHALLENGE FUNCTION (Optional)  revist this after submitting TLAB
     """
     pass
 
@@ -126,23 +125,26 @@ def run(file: str):
     cleaned_list, removed_values = clean_heartrate_data(data)  
     
     # calculate the average, median, and range of this file using the functions you've wrote
-    
     average_heart_rate_data = average(cleaned_list)
-    print("Average:", average_heart_rate_data)
-    # print out your data quality measure to the console
-    print(cleaned_list, removed_values)
-
+    print("Average:", average_heart_rate_data)   
+    
     median_heart_rate_data = median(cleaned_list)
     print("Median:", median_heart_rate_data)
 
     range_heart_rate_data = range(cleaned_list)
     print("Range:", range_heart_rate_data)
     
+
+
+    # print out your data quality measure to the console
+    print(cleaned_list)
+
+    
     #close() to stop reading the files
     file_object.close()
 
     # print out your descriptive statistics to the console
-    # .we are passing in the strings that are in the path of the text files
+    # we are passing in the strings that are in the path of the text files
 if __name__ == "__main__":
     run("data/phase0.txt")
     run("data/phase1.txt")
