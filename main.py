@@ -1,4 +1,5 @@
-import data_cleaning as clean
+from data_cleaning import clean_heartrate_data 
+
 # def clean_heartrate_data(data: list) -> tuple:
 #     """
 #     Clean raw heart-rate data by removing malformed or impossible values.
@@ -124,7 +125,7 @@ def run(file: str):
     data = file_object.readlines()
     
     # Use `clean_heartrate_data` to clean the data and remove invalid entries
-    cleaned_list, removed_val = clean(data)  
+    cleaned_list, removed_val = clean_heartrate_data(data)  
     
     # calculate the average, median, and range of this file using the functions you've wrote
     average_heart_rate_data = average(cleaned_list)
