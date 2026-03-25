@@ -23,3 +23,29 @@ def clean_heartrate_data(data: list) -> tuple:
     return (cleaned_list, removed_val)
 
     pass
+
+def range(data: list) -> float:
+    """
+    range is the cleaned_list's maximum - minimum...   
+    """
+    # make an initial max_value to first heartrate value in data list
+    max_val = data[0]
+
+    # max_val is updated to heartrate if heartrate is larger than max_val
+    for heartrate in data:
+        if heartrate > max_val:
+            max_val = heartrate
+    
+    # make an initial min_value to first heartrate value in data list
+    min_val = data[0]
+    # min_val is updated to heartrate if heartrate is smaller than min_val
+    for heartrate in data:
+        if heartrate < min_val:
+            min_val = heartrate
+        
+    heartrate_range = max_val - min_val
+      
+    return heartrate_range
+
+
+    pass
