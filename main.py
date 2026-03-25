@@ -26,20 +26,20 @@ from data_cleaning import clean_heartrate_data
 #     pass
 
 
-def average(data: list) -> float:
-    """
-    Calculate average of a list of integers using a for-loop. Assumes data is clean.
-    """
-    # avg_heart_rate is the two decimal-place rounded total / length of data list
-    # return the avg_heart_rate back to run()
-    total = 0
-    for heartrate in data:
-        total = total + heartrate
-        avg_heart_rate = round(total / len(data), 2)
+# def average(data: list) -> float:
+#     """
+#     Calculate average of a list of integers using a for-loop. Assumes data is clean.
+#     """
+#     # avg_heart_rate is the two decimal-place rounded total / length of data list
+#     # return the avg_heart_rate back to run()
+#     total = 0
+#     for heartrate in data:
+#         total = total + heartrate
+#         avg_heart_rate = round(total / len(data), 2)
 
-    pass
+#     pass
 
-    return avg_heart_rate
+#     return avg_heart_rate
 
 
 def median(data: list) -> float:
