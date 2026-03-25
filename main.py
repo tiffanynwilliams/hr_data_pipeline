@@ -1,4 +1,4 @@
-from data_cleaning import clean_heartrate_data 
+from data_cleaning import clean_heartrate_data, average 
 
 # def clean_heartrate_data(data: list) -> tuple:
 #     """
