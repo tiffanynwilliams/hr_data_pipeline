@@ -1,5 +1,6 @@
 from data_cleaning import clean_heartrate_data
 from statistical import average, median, range
+from statistics import variance
 
 # def clean_heartrate_data(data: list) -> tuple:
 #     """
@@ -139,6 +140,10 @@ def run(file: str):
     print("Range:", range_heart_rate_data, "bpm")
 
     print("Removed Values:", removed_val, "heartrate(s)")
+
+    # printing out variance()
+    variance_heart_rate_data = variance(cleaned_list)
+    print("Variance:", round(variance_heart_rate_data, 2))
 
     # print out your data quality measure to the console
     print("Cleaned Heartrate Values:", cleaned_list, "\n")
