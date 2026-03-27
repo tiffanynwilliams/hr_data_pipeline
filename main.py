@@ -101,11 +101,11 @@ from statistics import variance
 #     pass
 
 
-# def rolling_avg(data: list, k: int) -> float:
-#     """
-#     CHALLENGE FUNCTION (Optional)  revist this after submitting TLAB
-#     """
-#     pass
+def variance(data: list) -> float:
+    mean = average(data)
+    print(mean)
+    return mean
+
 
 
 def run(file: str):
@@ -142,8 +142,10 @@ def run(file: str):
     print("Removed Values:", removed_val, "heartrate(s)")
 
     # printing out variance()
+    # variance_heart_rate_data = variance(cleaned_list)
     variance_heart_rate_data = variance(cleaned_list)
-    print("Variance:", round(variance_heart_rate_data, 2))
+    print("VARIANCE:", variance_heart_rate_data)
+    # print("Variance:", round(variance_heart_rate_data, 2))
 
     # print out your data quality measure to the console
     print("Cleaned Heartrate Values:", cleaned_list, "\n")
