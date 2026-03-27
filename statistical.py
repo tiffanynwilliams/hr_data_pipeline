@@ -1,4 +1,4 @@
-import statistics as stats
+import math
 
 def average(data: list) -> float:
     """
@@ -46,7 +46,7 @@ def median(data: list) -> float:
 
 def range(data: list) -> float:
     """
-    range is the cleaned_list's maximum - minimum...   
+    Range is the cleaned_list's maximum - minimum.
     """
     # make an initial max_value to first heartrate value in data list
     max_val = data[0]
@@ -69,3 +69,25 @@ def range(data: list) -> float:
 
 
     pass
+
+def variance(data: list) -> float:
+    """
+    Variance is the average of the squared differences from the mean. 
+    We have the mean from average(); use a for loop to iterate over data, 
+    round the variance to nearest hundreth for standard deviation.
+    
+    """
+    mean = average(data)
+    
+    squared_sums = 0
+
+    for heartrate in data:
+        heartrate -= mean
+        squared_vals = heartrate ** 2
+        squared_sums += squared_vals
+    
+    variance_result = round(squared_sums / (len(data)),2)
+
+    standard_dev = round(math.sqrt(variance_result), 2)
+
+    return (variance_result, standard_dev)

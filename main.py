@@ -1,46 +1,6 @@
 from data_cleaning import clean_heartrate_data
-from statistical import average, median, range
-import math
-import matplotlib.pyplot as plt 
-
-def variance(data: list) -> float:
-    mean = average(data)
-    
-    squared_sums = 0
-
-    for heartrate in data:
-        heartrate -= mean
-        squared_vals = heartrate ** 2
-        squared_sums += squared_vals
-    
-    variance_result = round(squared_sums / (len(data)),2)
-
-    standard_dev = round(math.sqrt(variance_result), 2)
-
-    return (variance_result, standard_dev)
-
-def line_plot(data: list):
-    """
-    Create a visualisation using the cleaned_heartrate_data's values,
-    labelling the graph adaquetly.
-
-    Args:
-        cleaned_heartrate_data, the cleaned data list.
-    
-    Returns:
-        None, should save an image to images/ folder
-    """
-    fig, ax = plt.subplots()
-
-    ax.plot(data, color ='hotpink')
-    ax.set_title("Heart Rate Data, Individual in 30s")
-    ax.set_xlabel("Minutes")
-    ax.set_ylabel("Heart Rate (bpm)")
-    # save the image to the correct folder
-    fig.savefig("images/heart_rate_graph.png")
-    # best practice, helps with memory
-    plt.close()
-
+from statistical import average, median, range, variance
+from visualisation import line_plot
 
 def run(file: str):
     """
