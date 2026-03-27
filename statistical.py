@@ -86,7 +86,7 @@ def variance(data: list) -> float:
         squared_vals = heartrate ** 2
         squared_sums += squared_vals
     
-    variance_result = round(squared_sums / (len(data)-1), 2)
+    variance_result = round(squared_sums / (len(data)), 2)
 
     standard_dev = round(math.sqrt(variance_result), 2)
 
